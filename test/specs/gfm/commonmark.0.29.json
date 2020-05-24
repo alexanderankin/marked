@@ -2240,7 +2240,7 @@
     "start_line": 5050,
     "end_line": 5072,
     "section": "Lists",
-    "shouldFail": true
+    "shouldFail": false
   },
   {
     "markdown": "- foo\n- bar\n\n<!-- -->\n\n- baz\n- bim\n",

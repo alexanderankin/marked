@@ -10,9 +10,9 @@ function runSpecs(title, dir, showCompletionTable, options) {
   }
 
   describe(title, () => {
-    Object.keys(specs).forEach(section => {
+    Object.keys(specs).filter(e => e==='Lists').forEach(section => {
       describe(section, () => {
-        specs[section].specs.forEach((spec) => {
+        specs[section].specs.filter(e => e.example===277).forEach((spec) => {
           spec.options = Object.assign({}, options, (spec.options || {}));
           const example = (spec.example ? ' example ' + spec.example : '');
           const passFail = (spec.shouldFail ? 'fail' : 'pass');
@@ -48,8 +48,8 @@ function runSpecs(title, dir, showCompletionTable, options) {
 }
 
 runSpecs('GFM', './gfm', true, { gfm: true, pedantic: false, headerIds: false });
-runSpecs('CommonMark', './commonmark', true, { gfm: false, pedantic: false, headerIds: false });
-runSpecs('Original', './original', false, { gfm: false, pedantic: true });
-runSpecs('New', './new');
-runSpecs('ReDOS', './redos');
-runSpecs('Security', './security', false, { silent: true }); // silent - do not show deprecation warning
+// runSpecs('CommonMark', './commonmark', true, { gfm: false, pedantic: false, headerIds: false });
+// runSpecs('Original', './original', false, { gfm: false, pedantic: true });
+// runSpecs('New', './new');
+// runSpecs('ReDOS', './redos');
+// runSpecs('Security', './security', false, { silent: true }); // silent - do not show deprecation warning
